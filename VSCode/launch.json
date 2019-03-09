@@ -4,19 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-		// C++
+        // C++
         {
             "name": "(gdb) Launch C++ linux",
             "type": "cppdbg",
             "request": "launch",
-            "program":"${fileDirname}/${fileBasenameNoExtension}.out",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-			// "miDebuggerPath": "/usr/bin/gdb",
+            // "miDebuggerPath": "/usr/bin/gdb",
             "preLaunchTask": "compile C++ linux",
             "setupCommands": [
                 {
@@ -30,14 +30,14 @@
             "name": "(gdb) Launch C++ windows",
             "type": "cppdbg",
             "request": "launch",
-            "program":"${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-			"miDebuggerPath": "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\bin\\gdb32.exe",
+            "miDebuggerPath": "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\bin\\gdb32.exe",
             "preLaunchTask": "compile C++ windows",
             "setupCommands": [
                 {
@@ -47,12 +47,12 @@
                 }
             ]
         },
-		// C
+        // C
         {
             "name": "(gdb) Launch C",
             "type": "cppdbg",
             "request": "launch",
-            "program":"${fileDirname}/${fileBasenameNoExtension}.out",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -68,8 +68,8 @@
                 }
             ]
         },
-		// chrome
-		{
+        // chrome
+        {
             "type": "chrome",
             "request": "attach",
             "name": "Attach to Chrome",
@@ -84,61 +84,77 @@
             "webRoot": "${workspaceFolder}"
         },
         {
-            "type":"chrome",
-            "request":"launch",
+            "type": "chrome",
+            "request": "launch",
             "name": "Launch chrome against file",
             "file": "${file}",
             "webRoot": "${workspaceFolder}",
         },
-		// Python
-		{
-            "name": "Python: Current File",
+        // Python
+        {
+            "name": "Python: Current File (Integrated Terminal)",
             "type": "python",
             "request": "launch",
             "program": "${file}",
+            "console": "integratedTerminal",
+            "stopOnEntry": true
+        },
+        {
+            "name": "Python: Current File (External Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "externalTerminal",
             "stopOnEntry": true
         },
         {
             "name": "Python: Attach",
             "type": "python",
             "request": "attach",
-            "localRoot": "${workspaceFolder}",
-            "remoteRoot": "${workspaceFolder}",
+            "host": "localhost",
             "port": 3000,
-            "secret": "my_secret",
-            "host": "localhost"
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "${workspaceFolder}"
+                }
+            ],
         },
         {
-            "name": "Python: Terminal (integrated)",
+            "name": "Python: Remote Attach",
+            "type": "python",
+            "request": "attach",
+            "host": "localhost",
+            "port": 5678,
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ]
+        },
+        {
+            "name": "Python: Module",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "module": "enter-your-module-name-here",
             "console": "integratedTerminal"
-        },
-        {
-            "name": "Python: Terminal (external)",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "externalTerminal"
         },
         {
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
+            "console": "integratedTerminal",
             "args": [
                 "runserver",
                 "--noreload",
                 "--nothreading"
             ],
-            "debugOptions": [
-                "RedirectOutput",
-                "Django"
-            ]
+            "django": true
         },
         {
-            "name": "Python: Flask (0.11.x or later)",
+            "name": "Python: Flask",
             "type": "python",
             "request": "launch",
             "module": "flask",
@@ -149,36 +165,8 @@
                 "run",
                 "--no-debugger",
                 "--no-reload"
-            ]
-        },
-        {
-            "name": "Python: Module",
-            "type": "python",
-            "request": "launch",
-            "module": "module.name"
-        },
-        {
-            "name": "Python: Pyramid",
-            "type": "python",
-            "request": "launch",
-            "args": [
-                "${workspaceFolder}/development.ini"
             ],
-            "debugOptions": [
-                "RedirectOutput",
-                "Pyramid"
-            ]
-        },
-        {
-            "name": "Python: Watson",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/console.py",
-            "args": [
-                "dev",
-                "runserver",
-                "--noreload=True"
-            ]
+            "jinja": true
         },
         {
             "name": "Python: All debug Options",
@@ -200,36 +188,36 @@
                 "RedirectOutput"
             ]
         },
-		// C# .NET
-		{
-	        "name": ".NET Core Launch (console)",
-	        "type": "coreclr",
-	        "request": "launch",
-	        "preLaunchTask": "build",
-	        // If you have changed target frameworks, make sure to update the program path.
-	        "program": "${workspaceFolder}/CSharpWithVSCode/src/CSharpWithVSCode.ConsoleApp/bin/Debug/netcoreapp2.0/CSharpWithVSCode.ConsoleApp.dll",
-	        "args": [],
-	        "cwd": "${workspaceFolder}/CSharpWithVSCode/src/CSharpWithVSCode.ConsoleApp",
-	        // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-	        "console": "internalConsole",
-	        "stopAtEntry": false,
-	        "internalConsoleOptions": "openOnSessionStart"
-	    },
-	    {
-	        "name": ".NET Core Attach",
-	        "type": "coreclr",
-	        "request": "attach",
-	        "processId": "${command:pickProcess}"
-	    },
-		// node
-		//{
-		//    "type": "node",
-		//    "request": "launch",
-		//    "name": "Launch Program",
-		//    "program": "${file}"
-		//},
-		// Java
-		{
+        // C# .NET
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/CSharpWithVSCode/src/CSharpWithVSCode.ConsoleApp/bin/Debug/netcoreapp2.0/CSharpWithVSCode.ConsoleApp.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CSharpWithVSCode/src/CSharpWithVSCode.ConsoleApp",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        },
+        // node
+        //{
+        //    "type": "node",
+        //    "request": "launch",
+        //    "name": "Launch Program",
+        //    "program": "${file}"
+        //},
+        // Java
+        {
             "type": "java",
             "name": "Debug (Launch)-Ex7_22",
             "request": "launch",
@@ -246,22 +234,22 @@
             "hostName": "localhost",
             "port": 0
         },
-		// php
-		{
-			"name": "Listen for XDebug",
-			"type": "php",
-			"request": "launch",
-			"port": 9000,
-			"stopOnEntry": true
-		},
-		{
-			"name": "Launch currently open script",
-			"type": "php",
-			"request": "launch",
-			"program": "${file}",
-			"cwd": "${fileDirname}",
-			"port": 9000,
-			"stopOnEntry": true
-		}
+        // php
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000,
+            "stopOnEntry": true
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000,
+            "stopOnEntry": true
+        }
     ]
 }
