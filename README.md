@@ -1,2 +1,2 @@
 # Config
-Configurations and settings for different environments and IDEs
+Configurations and settings for various environments and IDEs
