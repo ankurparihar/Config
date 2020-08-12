@@ -1,45 +1,46 @@
 {
-    /* General */
-    "editor.fontFamily": "Consolas, Courier New, monospace, Droid Sans Mono, Droid Sans Fallback",
+	/* General */
+	"editor.fontFamily": "Consolas, Courier New, monospace, Droid Sans Mono, Droid Sans Fallback",
 	// "editor.fontFamily": "Liberation Mono",
-    // "editor.fontSize": 16,
-    // "editor.fontFamily": "Source Code Pro",
-    // "editor.fontFamily": "Ubuntu"
-    // "editor.fontFamily":  "Consolas, monospace",
-    "terminal.integrated.fontSize": 15,
-    "window.zoomLevel": 0,
-    "editor.minimap.enabled": false,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-    //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
-    "editor.multiCursorModifier": "alt",
+	// "editor.fontSize": 16,
+	// "editor.fontFamily": "Source Code Pro",
+	// "editor.fontFamily": "Ubuntu"
+	// "editor.fontFamily":  "Consolas, monospace",
+	"terminal.integrated.fontSize": 15,
+	"window.zoomLevel": 0,
+	"editor.minimap.enabled": false,
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.cursorStyle": "line",
+	//"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+	"editor.multiCursorModifier": "alt",
 
-    /* Git */
-    "git.enabled": false,
+	/* Git */
+	"git.enabled": false,
 
-    /* Java */
-    // "java.referencesCodeLens.enabled": false,
-    // "java.errors.incompleteClasspath.severity": "ignore",
+	/* Java */
+	// "java.referencesCodeLens.enabled": false,
+	// "java.errors.incompleteClasspath.severity": "ignore",
 
-    /* Python */
+	/* Python */
 	// "python.pythonPath": "/usr/bin/python3",
-    // "python.pythonPath": "C:\\Users\\parih\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
-    // "python.linting.enabledWithoutWorkspace": false,
-    // "python.linting.pylintEnabled": true,
-    // "python.linting.enabled": true,
-    // "python.linting.pylintPath": "/home/ankur/.local/bin/pylint",
-    
-    /* Indention */
-    "editor.tabSize": 4,
+	// "python.pythonPath": "C:\\Users\\parih\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+	// "python.linting.enabledWithoutWorkspace": false,
+	// "python.linting.pylintEnabled": true,
+	// "python.linting.enabled": true,
+	// "python.linting.pylintPath": "/home/ankur/.local/bin/pylint",
+
+	/* Indention */
+	"editor.tabSize": 4,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
+	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }"
 
 	/* PHP*/
 	// "php.suggest.basic": true,
 	// "php.validate.executablePath": "/usr/bin/php",
-    // "php.validate.run": "onType"
-    
-    // Disable error squiggles
+	// "php.validate.run": "onType"
+
+	// Disable error squiggles
 	// "workbench.colorCustomizations": {
 	// 	"editorError.foreground":   "#00000000",
 	// 	"editorWarning.foreground": "#00000000",
