@@ -44,6 +44,7 @@ t() {
 	else
 		touch "$1";
 	fi
+	return 0;
 }
 
 # Touch file and open in vscode
