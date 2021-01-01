@@ -27,6 +27,7 @@ branch_enc(){
 
 alias validate_filenames='ls | grep "[<>:\"\'/\\|?*]"'
 
+# safely touch file
 t() {
 	if [[ $1 =~ [/\\\<\>:\"\'|?!\*] ]]
 	then
@@ -40,4 +41,9 @@ t() {
 	else
 		touch "$1";
 	fi
+}
+
+# Touch file and open in vscode
+tc() {
+	t "$1" && code "$1";
 }
