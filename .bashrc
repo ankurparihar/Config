@@ -44,6 +44,7 @@ t() {
 }
 
 # Touch file and open in vscode
-tc() {
+# Could not name it tc as there is another system package with this name
+tode() {
 	t "$1" && code "$1";
 }
