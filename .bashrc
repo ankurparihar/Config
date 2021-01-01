@@ -27,17 +27,20 @@ branch_enc(){
 
 alias validate_filenames='ls | grep "[<>:\"\'/\\|?*]"'
 
-# safely touch file
+# Safely touch file
 t() {
 	if [[ $1 =~ [/\\\<\>:\"\'|?!\*] ]]
 	then
 		echo "filename contains dangerous character ${BASH_REMATCH[0]}";
+		return 1;
 	elif [[ $1 =~ ^(CON|PRN|AUX|NUL|COM1|COM2|COM3|COM4|COM5|COM6|COM7|COM8|COM9|LPT1|LPT2|LPT3|LPT4|LPT5|LPT6|LPT7|LPT8|LPT9)\..*$ ]]
 	then
 		echo "filename contains reserved windows filename ${BASH_REMATCH[1]}";
+		return 1;
 	elif [[ $1 =~ [\ \.]$ ]]
 	then
 		echo "filename ending in <space> or . not allowed";
+		return 1;
 	else
 		touch "$1";
 	fi
@@ -46,5 +49,6 @@ t() {
 # Touch file and open in vscode
 # Could not name it tc as there is another system package with this name
 tode() {
-	t "$1" && code "$1";
+	t "$1" && code "$1" && return 0;
+	return 1;
 }
